@@ -5,6 +5,7 @@ public class ReverseSort{
 		char[] unorderedLetters; 
 		unorderedLetters = new char[]{'a','b','m','z','a','u'}; 
 		reverseSort(unorderedLetters); 
+		
 		for(int i = 0; i < unorderedLetters.length; i++)
 			System.out.println(unorderedLetters[i]);
 	}
@@ -14,6 +15,7 @@ public class ReverseSort{
 
 		for(int i = 0; i < values.length - 1; i++){ 
 			int maxValueIndex = i;
+			
 			for(int j = i + 1; j < values.length; j++){
 				if(values[j]>values[maxValueIndex]) { 
 					maxValueIndex = j; 
