@@ -44,15 +44,15 @@ public class isPrime_getFibonnaci{
 
 	//method that determines if the number x is prime
 	public static boolean isPrime(int x){
-		if(x < 2){ 
+		if(x < 1){ 
 			return false;
 		}
-		if(x == 2){
+		if(x == 1){
 			return true;
 		}
 		boolean prime = true; 
 		int i = 2; 
-		while(prime == true && i < x){
+		while(prime && x > i){
 			if(x % i == 0){ 
 				prime = false; 
 			}
@@ -70,13 +70,14 @@ public class isPrime_getFibonnaci{
 		if(position == 0 || position == 1){ 
 			return position;
 		}
-		for (int i = 2; i<position+1;i++ )
+		
+		for (int i = 2; i<position+1;i++)
 		{
    		 	fibonacci = num + num2; 
    		 	num = num2; 
    			num2 = fibonacci; 
 		}
-		return num2;
+		return fibonacci;
 
 	}
 
