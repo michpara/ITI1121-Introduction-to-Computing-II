@@ -5,7 +5,7 @@
 
 public class Sum{
 
-    //calculats the sum of given integers
+    //calculaets the sum of given integers
     public static void main(String[]args){
     	
     	int sum = 0; 
@@ -16,6 +16,6 @@ public class Sum{
 
     	}
 
-        System.out.println(sum);
+        System.out.println("The sum is " + sum);
     }
 }
