@@ -71,8 +71,7 @@ public class isPrime_getFibonnaci{
 			return position;
 		}
 		
-		for (int i = 2; i<position+1;i++)
-		{
+		for (int i = 2; i<position+1;i++){
    		 	fibonacci = num + num2; 
    		 	num = num2; 
    			num2 = fibonacci; 
