@@ -11,7 +11,7 @@ public class TextPost extends Post {
 	
     //gets the message
     public String getMessage() {
-	     return message;
+        return message;
     }
 	
     //returns a string representation of the textpost
@@ -22,12 +22,12 @@ public class TextPost extends Post {
     }
 	
 	//returns if the post is popular
-  	public boolean isPopular() {
+    public boolean isPopular() {
       if(super.likes > 50){ //overides likes
-        return true;
+          return true;
       }
+	    
       return false;
-      
-  	}
+      }
 
 }
