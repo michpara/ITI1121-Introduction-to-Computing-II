@@ -5,9 +5,9 @@ import java.util.Calendar;
 public class Post implements Likeable, Comparable<Post>{
 	
 	//instance variables
-	public String userName;
-	public Date timeStamp;
-	public int likes;
+	private String userName;
+	private Date timeStamp;
+	protected int likes;
 
 	//constructor
 	public Post(String userName){
