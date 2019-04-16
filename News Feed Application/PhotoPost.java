@@ -13,12 +13,12 @@ public class PhotoPost extends Post {
 	
     //gets the caption
     public String getCaption() {
-	     return caption;
+        return caption;
     }
 	
     //gets the FileName
     public String getFileName() {
-	     return fileName;
+        return fileName;
     }
 
     //returns a string representation of the photopost
