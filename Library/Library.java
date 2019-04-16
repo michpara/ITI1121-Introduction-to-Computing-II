@@ -17,6 +17,10 @@ public class Library {
 
     //adds Book b to the library
     public void addBook (Book b) {
+        if(b == null){
+            return
+        }
+        
         library.add(b);
     }
 
@@ -24,7 +28,6 @@ public class Library {
     public void sort() {
         library.sort(new BookComparator());
     }
-
 
     //prints the Library of books
     public void printLibrary() {
