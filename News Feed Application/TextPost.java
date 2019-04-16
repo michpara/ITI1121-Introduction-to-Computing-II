@@ -25,8 +25,7 @@ public class TextPost extends Post {
     public boolean isPopular() {
       if(super.likes > 50){ //overides likes
           return true;
-      }
-	    
+      }    
       return false;
       }
 
