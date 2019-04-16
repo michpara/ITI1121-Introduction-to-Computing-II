@@ -1,3 +1,9 @@
+// Test.java --- Tests Combination, DoorLock and SecurityAgent
+// Author          : Marcel Turcotte
+// Created On      : Mon Jan 26 14:24:07 2004
+// Last Modified By: turcotte
+// Last Modified On: Wed Feb  4 13:52:39 2015
+
 import java.util.Random;
 
 //test method
