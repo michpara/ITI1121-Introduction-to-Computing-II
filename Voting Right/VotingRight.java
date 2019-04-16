@@ -13,7 +13,7 @@ public class VotingRight{
 
 		if(usersAge < 18){
 			
-		  if(yearsLeft = 1){
+		  if(yearsLeft == 1){
 
 			years = "year";
 		  }
