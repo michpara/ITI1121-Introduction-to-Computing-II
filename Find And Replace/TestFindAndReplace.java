@@ -1,3 +1,12 @@
+/* ITI 1121. Introduction to Computing II; Laboratory 3
+* ITI 1521. Introduction a l'informatique II; Laboratoire 3
+*/
+
+/** A series of tests for the method findAndReplace.
+*
+* @author Marcel Turcotte (turcotte@site.uottawa.ca)
+*/
+
 //tests the findAndReplace method in Utils.java
 public class TestFindAndReplace {
   public static void main(String[] args){
