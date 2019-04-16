@@ -1,9 +1,9 @@
 public class Combination {
 
    //instance variables
-   public int first; //intializes first
-   public int second; //initializes second
-   public int third; //initializes third
+   private int first; //intializes first
+   private int second; //initializes second
+   private int third; //initializes third
 
    //constructor
     public Combination( int first, int second, int third ) {
@@ -14,7 +14,7 @@ public class Combination {
 
     //checks if this Combination is equal to other
     public boolean equals( Combination other ) {
-        if(first != other.first || second != other.second || third != other.third){
+        if(first != other.first || second != other.second || third != other.third || other == null){
             return false;
         }
         return true;
@@ -23,8 +23,8 @@ public class Combination {
     //returns a string representation of the Combination as first:second:third
     public String toString() {
 
-        String aString = "displays: " + "\"" + first + ":" + second + ":" + third +"\"" + ".";
-        return aString; 
+        return first + ":" + second + ":" + third;
+       
     }
 
 }
