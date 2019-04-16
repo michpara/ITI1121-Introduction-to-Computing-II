@@ -1,9 +1,22 @@
+import java.util.Scanner;
+
 public class Grades{
 	
 	//test method
 	public static void main(String[] args){
 
-		double[] grades = new double[]{10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0};
+		int sizeClass = 10;
+		double[] grades;
+		Scanner sc;
+		
+		grades = new double[sizeClass];
+		sc = new Scanner(System.in);
+		
+		for(int i=0;i<sizeClass;i++){
+			System.out.println("Please enter the grade of student " + (i+1)+":");
+			grades[i] = sc.nextDouble();
+		}
+		
 		System.out.println("The average is " + calculateAverage(grades));
 		System.out.println("The median is " +calculateMedian(grades));
 		System.out.println("The number of failed grades is " + calculateNumberFailed(grades));
@@ -13,12 +26,16 @@ public class Grades{
 	
 	//calculates the average of the grades
 	public static double calculateAverage(double[] notes){
+		
 		double total = 0; 
 		double result = 0; 
+		
 		for(int i =0; i<notes.length;i++){
-			total = total + notes[i]; 
+			total += notes[i]; 
 		}
+		
 		result = total/notes.length; 
+		
 		return result;
 	}
 	
@@ -37,6 +54,7 @@ public class Grades{
 				}
 			}
 		}
+		
 		temp = notes[minValueIndex]; 
 		notes[minValueIndex] = notes[i];
 		notes[i] = temp; 
@@ -58,24 +76,29 @@ public class Grades{
 	public static int calculateNumberFailed(double[] notes){
 		
 		int numberOfFailedGrades = 0; 
+		
 		for(int i =0;i<notes.length;i++){
 			if(notes[i] < 50){ 
 				numberOfFailedGrades++; 
 			}
 
 		}
+		
 		return numberOfFailedGrades;
 	}
 	
 	//calculates the number of passed grades
 	public static int calculateNumberPassed(double[] notes){
+		
 		int numberOfPassedGrades = 0; 
+		
 		for(int i =0;i<notes.length;i++){
 			if(notes[i] >= 50){ 
 				numberOfPassedGrades++; 
 			}
 
 		}
+		
 		return numberOfPassedGrades;
 	
 	}
