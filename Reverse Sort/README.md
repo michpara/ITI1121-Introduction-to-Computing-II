@@ -1,6 +1,6 @@
 # **Reverse Sort**
 
-Sorts an array in reverse.
+Sorts an array in reverse. The array is already given in the program.
 
 ## **Getting Started**
 
