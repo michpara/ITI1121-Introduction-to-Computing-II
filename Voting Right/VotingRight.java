@@ -14,11 +14,11 @@ public class VotingRight{
 			
 		  if(yearsLeft = 1){
 
-			years = "year"
+			years = "year";
 		  }
 			
 		  else{
-			years = "years"
+			years = "years";
 		  }
 			
 			System.out.println("You will be allowed to in " + yearsLeft + " " + years + ".");
