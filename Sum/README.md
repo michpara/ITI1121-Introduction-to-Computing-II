@@ -1,6 +1,6 @@
 # **Sum**
 
-Calculates the sum of given integers.
+Calculates the sum of given integers (input received through args).
 
 ## **Getting Started**
 
