@@ -8,7 +8,8 @@ public class VotingRight{
 		System.out.print("How old are you? ");
 
 		int usersAge = myScan.nextInt(); 
-		int yearsLeft = 18-usersAge; 
+		int yearsLeft = 18-usersAge;
+		String years;
 
 		if(usersAge < 18){
 			
