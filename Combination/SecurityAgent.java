@@ -1,8 +1,8 @@
 public class SecurityAgent{
 
     //instance variables
-    public Combination combination; //initializes combination
-    public DoorLock lock; //initializes lock
+    private Combination myCombination; //initializes combination
+    private DoorLock myLock; //initializes lock
    
     //constructor
     public SecurityAgent(){
@@ -14,21 +14,21 @@ public class SecurityAgent{
         second = (int)(Math.random()*5)+1;
         third = (int)(Math.random()*5)+1;
 
-        combination = new Combination(first, second, third); //creates a new combination with these random integers
+        myCombination = new Combination(first, second, third); //creates a new combination with these random integers
 
-        lock = new DoorLock(combination); 
+        myLock = new DoorLock(myCombination); 
 
     }
     
     //gets the DoorLock
     public DoorLock getDoorLock(){
 
-        return lock; //returns the lock
+        return myLock; //returns the lock
     }
     
     //activates the DoorLock  
     public void activateDoorLock(){
 
-        lock.activate(combination);
+        myLock.activate(myCombination);
     }
 }
