@@ -1,8 +1,6 @@
 # **Combination**
 
-Combination.java creates a combination, DoorLock.java creates a lock (with a random combination), SecurityAgent.java creates
-a bot that continuously tries to break the DoorLock by figuring out what the random combination is, Test.java is a Test method
-for this program.
+Combination.java creates a combination for a DoorLock, DoorLock.java creates a lock with a Combination (with three random numbers), SecurityAgent.java creates a bot that "protects/monitors" a DoorLock, Test.java tries to break the DoorLock by guessings it's combination.
 
 ## **Getting Started**
 
