@@ -11,7 +11,6 @@ public class ArrayInsertion{
 
 		for(int i = indexToInsert+1;i<afterArray.length;i++){ 
 			afterArray[i] = beforeArray[i-1]; 
-
 		}
 
 		afterArray[indexToInsert] = valueToInsert; 
@@ -35,6 +34,7 @@ public class ArrayInsertion{
 		}
 		
 		System.out.println("Array after insertion of " + valueToInsert + " at position " + indexToInsert + ":");
+		
 		for(int i=0;i<afterArray.length;i++){
 			System.out.println(afterArray[i]); //prints out the elements in afterArray
 		}
