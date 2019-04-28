@@ -1,3 +1,3 @@
 # **Java**
 
-This repository contains all of my Java projects done in ITI1121, including all labs and assignments.
+This repository contains all of my ITI1121 labs and assignments.
