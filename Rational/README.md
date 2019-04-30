@@ -20,16 +20,6 @@ and a text-editor, I use sublime, but feel free to use whichever you would like.
 
 Download the Rational.java programs onto your desktop and place them on the desktop.
 
-Open your terminal and type :
-
->cd desktop
-
-Type the following command:
-
->javac Rational.java
-
->java Rational
-
 # **Built with**
 
 Java
