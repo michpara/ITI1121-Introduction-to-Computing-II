@@ -17,7 +17,7 @@ public class StudentInfo {
 
         System.out.println("************************************************************");
         System.out.println("*Student Name : Michelle Paradis                                                          *");
-        System.out.println("*Student ID: 300007297                                                      *");
+        System.out.println("*Student ID:                                                    *");
         System.out.println("*Section : ITI1121-A01                                                          *");
         System.out.println("*Assignment 1                                                          *");
         System.out.println("************************************************************");
@@ -25,7 +25,7 @@ public class StudentInfo {
 
         System.out.println("************************************************************");
         System.out.println("*Student Name : Shannon Paul                                                         *");
-        System.out.println("*Student ID: 300056314                                                      *");
+        System.out.println("*Student ID:                                                     *");
         System.out.println("*Section : ITI1121-C00                                                          *");
         System.out.println("*Assignment 1                                                          *");
         System.out.println("************************************************************");
