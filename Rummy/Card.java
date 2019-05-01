@@ -13,7 +13,6 @@ public class Card{
 	private int rank;
 
 	public Card(int suit, int rank){
-
 		this.suit = suit;
 
 		this.rank = rank;
