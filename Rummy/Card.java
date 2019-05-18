@@ -1,32 +1,32 @@
 public class Card{
 
+	//constants
 	public static final int DIAMOND =0;
-
 	public static final int CLUB = 1;
-
 	public static final int HEART = 2;
-
 	public static final int SPADE = 3;
 
+	//instance variables
 	private int suit;
-
 	private int rank;
 
+	//constructor
 	public Card(int suit, int rank){
 		this.suit = suit;
-
 		this.rank = rank;
-
 	}
 
+	//returns suit
 	public int getSuit(){
 		return suit;
 	}
 
+	//returns rank
 	public int getRank(){
 		return rank;
 	}
 
+	//returns if 'o' is equal to card
 	public boolean equals(Object o){
 		if(!(o instanceof Card)){
 			return false;
@@ -46,28 +46,15 @@ public class Card{
 		if(other.getRank() != this.getRank()){
 			return false;
 		}
+		
 		else{
 			return true;
 		}
 	}
-
+	
+	//returns a string representation of the card
 	public String toString(){
 
 		return "(" + suit + "," + rank + ")";
 	}
-
-	public static void main(String[] args){
-
-		Card a, b, c;
-		a = new Card(2, 7);
-		b = new Card(2,7);
-		c = new Card(0,9);
-		System.out.println(a);
-		System.out.println(a.equals(b));
-		System.out.println(a.equals(c));
-	}
-
-	
-
-
 }
