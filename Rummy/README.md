@@ -22,6 +22,8 @@ Download every .java file onto your computer and place them inside a folder call
 
 Open your terminal and type :
 
+>cd desktop
+
 >cd Rummy
 
 >javac Die.java
