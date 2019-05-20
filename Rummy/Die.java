@@ -4,7 +4,7 @@ public class Die{
 
 	//instance variables
 	private Random rand = new Random();
-	public int die;
+	private int die;
 
 	//constant
 	public static final int MAXVALUE = 6;
