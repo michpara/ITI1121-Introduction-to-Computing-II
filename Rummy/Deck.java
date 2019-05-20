@@ -176,9 +176,9 @@ public class Deck{
 	public void print(){
 		System.out.println("Here is your deck printed in two ways: ");
 		sortByRank();
-		System.out.println(deck);
+		System.out.println(toString());
 		sortBySuit();
-		System.out.println(deck);
+		System.out.println(toString());
 	}
 
 	//prints the deck
@@ -188,11 +188,6 @@ public class Deck{
 		int count = 0;
 
 		for(int i = 0; i<deck.size(); i++){
-
-			if(count == 0){
-				result += deck.get(i) + ",";
-				count++;
-			}
 
 			if(count >= 0 && count < deck.size() -1){
 				result += deck.get(i) + ",";
