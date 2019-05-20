@@ -5,6 +5,7 @@ public class Game{
 	private Die die;
 	private Deck playerHand = new Deck();
 	private Utils utils = new Utils();
+	private int ranks;
 	
 	//constructor
 	public Game(int ranks){
@@ -52,7 +53,12 @@ public class Game{
 				
 				if(yesOrNo == true){
 					Card cardToDiscard = utils.readCard();
-					playerHand.remove(cardToDiscard);
+					if(!playerHand.contains(cardToDiscard)){
+						System.out.println("No such card in your hand.");
+					}
+					else{
+						playerHand.remove(cardToDiscard);
+					}
 					yesOrNo = false;
 				}
 				rounds++;
@@ -97,6 +103,7 @@ public class Game{
 				rounds++;
 			}
 		}
+		System.out.println("Total number of rounds: " + rounds);
 		return rounds;
 	}
 }
