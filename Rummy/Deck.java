@@ -13,16 +13,16 @@ public class Deck{
 	}
 
 	public Deck(int range) {
-        this(); 
+        	this(); 
 
-        for (int suit=0; suit<4; suit++) {
-            for (int rank=1; rank<=range; rank++) {
-                deck.add(new Card(suit, rank));
-            }
-        }
-    }
+		for (int suit=0; suit<4; suit++) {
+		    for (int rank=1; rank<=range; rank++) {
+			deck.add(new Card(suit, rank));
+		    }
+		}
+         }
 
-    //returns size of deck
+        //returns size of deck
 	public int size(){
 		return deck.size();
 	}
@@ -44,9 +44,9 @@ public class Deck{
 
 	//adds all of the cards in 'other' to the deck
 	public void addAll(Deck other){
-        while (other.size() > 0) {
-            deck.add(other.removeFirst());
-        }
+		while (other.size() > 0) {
+		    deck.add(other.removeFirst());
+		}
 	}
 
 	//removes the last card in the deck
@@ -69,14 +69,13 @@ public class Deck{
 			deck.remove(card);
 			return true;
 		}
-
+		
 		return false;
 	}
 
 	//removes all the cards in 'other' from the deck
 	public void removeAll(Deck other){
 		for(int i=0;i<other.size();i++){
-
 			if(deck.contains(other.get(i))){
 				deck.remove(other.get(i));
 			}
@@ -120,47 +119,48 @@ public class Deck{
 
 	//checks if the deck 'isKind' (the deck has atleast 2 cards and has all the same ranks)
 	public boolean isKind(){
-        if (deck.size() < 2) {
-            return false;
-        }
+		if (deck.size() < 2) {
+		    return false;
+		}
 
-        for (int i=1; i<deck.size(); i++) {
-            if (deck.get(i-1).getRank() != deck.get(i).getRank()) {
-                return false;
-            }
-        }
+		for (int i=1; i<deck.size(); i++) {
+		    if (deck.get(i-1).getRank() != deck.get(i).getRank()) {
+			return false;
+		    }
+		}
 
-        return true;
-    }
+		return true;
+         }
 
-    //checks if the deck 'isSeq' (the deck has atleast 3 cards that are all the same suits and consecutive ranks)
+   	//checks if the deck 'isSeq' (the deck has atleast 3 cards that are all the same suits and consecutive ranks)
 	public boolean isSeq(){
-        if (deck.size() < 3) {
-            return false;
-        }
-        sortByRank();
+		if (deck.size() < 3) {
+		    return false;
+		}
+		
+		sortByRank();
 
-        for (int i=1; i<deck.size(); i++) {
+		for (int i=1; i<deck.size(); i++) {
 
-            Card a, b;
+		    Card a, b;
 
-            a = deck.get(i-1);
-            b = deck.get(i);
+		    a = deck.get(i-1);
+		    b = deck.get(i);
 
-            if (a.getSuit() != b.getSuit()) {
-                return false;
-            }
+		    if (a.getSuit() != b.getSuit()) {
+			return false;
+		    }
 
-            if (a.getRank()+1 != b.getRank()) {
-                return false;
-            }
+		    if (a.getRank()+1 != b.getRank()) {
+			return false;
+		    }
 
-        }
+		}
 
-        return true;
+		return true;
     }
 
-    //sorts the deck by suit
+        //sorts the deck by suit
 	public void sortBySuit(){
 		deck.sort(new SuitComparator());
 
@@ -184,24 +184,23 @@ public class Deck{
 	//prints the deck
 	public String toString(){
 
-		String result = "Deck: ";
+		String result = "Deck: [";
 		int count = 0;
 
-		for(int i = 0; i<deck.size();i++){
+		for(int i = 0; i<deck.size(); i++){
 
 			if(count == 0){
 				result += deck.get(i) + ",";
 				count++;
-				
 			}
 
-			if(count > 0 && count < deck.size() -1){
+			if(count >= 0 && count < deck.size() -1){
 				result += deck.get(i) + ",";
 				count++;
 			}
 
 			else{
-				result+=deck.get(i) + "]";
+				result+= deck.get(i) + "]";
 				count++;
 			}
 		}
