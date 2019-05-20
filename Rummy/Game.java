@@ -5,8 +5,7 @@ public class Game{
 	private Die die;
 	private Deck playerHand = new Deck();
 	private Utils utils = new Utils();
-	private int ranks;
-
+	
 	//constructor
 	public Game(int ranks){
 		this.ranks = ranks;
@@ -23,9 +22,9 @@ public class Game{
 		mainDeck.shuffle();
 		playerHand = mainDeck.deal(7);
 
-		playerHand.print();
-
 		while(playerHand.hasCards()){
+			
+			playerHand.print();
 
 			System.out.println("Welcome to round " + rounds);
 
@@ -43,7 +42,7 @@ public class Game{
 			System.out.println("The die has value " + currentDie);
 
 			if(currentDie > 1){
-				System.out.println("Adding (up to) " + currentDie+ " cards to your hand.");
+				System.out.println("Adding (up to) " + currentDie + " cards to your hand.");
 			}
 
 			System.out.println("The size of the deck is: " + mainDeck.size()); //remove later
@@ -82,7 +81,7 @@ public class Game{
 						}
 
 
-						if(meldToDiscard.isSeq() && playerHand.containsAll(meldToDiscard)){
+						else if(meldToDiscard.isSeq() && playerHand.containsAll(meldToDiscard)){
 							playerHand.removeAll(meldToDiscard);
 				  		}
 
@@ -94,13 +93,9 @@ public class Game{
 					if(yesOrNo == false){
 						break;
 					}
-
 				}
-
 				rounds++;
-
 			}
-
 		}
 		return rounds;
 	}
