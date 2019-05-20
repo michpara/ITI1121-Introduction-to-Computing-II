@@ -5,7 +5,6 @@ public class Deck{
 
 	//instance variables
 	private int numOfRanks;
-	private int size;
 	private ArrayList<Card> deck;
 
 	//constructors
@@ -40,25 +39,20 @@ public class Deck{
 
 	//adds 'card' to the deck
 	public void add(Card card){
-		deck.add(card);
-		size++;
-	
+		deck.add(card);	
 	}
 
 	//adds all of the cards in 'other' to the deck
 	public void addAll(Deck other){
-		for(int i =0;i<other.size();i++){
-			deck.add(other.get(i));
-			other.remove(other.get(i));
-			size++;
-		}
+        while (other.size() > 0) {
+            deck.add(other.removeFirst());
+        }
 	}
 
 	//removes the last card in the deck
 	public Card removeLast(){
-		Card temp = deck.get(size-1);
-		deck.remove(size-1);
-		size--;
+		Card temp = deck.get(deck.size()-1);
+		deck.remove(deck.size()-1);
 		return temp;
 	}
 
@@ -66,7 +60,6 @@ public class Deck{
 	public Card removeFirst(){
 		Card temp = deck.get(0);
 		deck.remove(0);
-		size--;
 		return temp;
 	}
 
@@ -74,7 +67,6 @@ public class Deck{
 	public boolean remove(Card card){
 		if(deck.contains(card)){
 			deck.remove(card);
-			size--;
 			return true;
 		}
 
@@ -87,7 +79,6 @@ public class Deck{
 
 			if(deck.contains(other.get(i))){
 				deck.remove(other.get(i));
-				size--;
 			}
 		}
 	}
@@ -101,10 +92,9 @@ public class Deck{
 	public Deck deal(int n){
 		Deck newDeck = new Deck();
 
-		for(int i = size-1;i>size-(n-1);i--){
-			newDeck.add(deck.get(i));
-			deck.remove(i);
-			size--;
+		while(n>0 && deck.size() >0){
+			newDeck.add(deck.remove(deck.size()-1));
+			n--;
 		}
 
 		return newDeck;
@@ -113,11 +103,11 @@ public class Deck{
 	//returns true if 'card' is in the deck
 	public boolean contains(Card card){
 		return deck.contains(card);	
-
 	}
 
 	//returns true if deck contains all the cards in 'other'
 	public boolean containsAll(Deck other){
+
 		for(int i =0;i<other.size();i++){
 
 			if(!deck.contains(other.get(i))){
@@ -184,56 +174,35 @@ public class Deck{
 
 	//prints the cards in the deck, sorted by rank and sorted by suit
 	public void print(){
-
-		int count = 0;
-
-		sortBySuit();
-
-		for(int i = 0; i<deck.size();i++){
-			if(count == 0){
-				System.out.println("[" + deck.get(i) + ",");
-			}
-			if(count > 0 && count < deck.size() -1){
-				System.out.println(deck.get(i) + ",");
-			}
-			else{
-				System.out.println(deck.get(i) + "]");
-			}
-		}
-
+		System.out.println("Here is your deck printed in two ways: ");
 		sortByRank();
-
-		for(int i = 0; i<deck.size();i++){
-			if(count == 0){
-				System.out.println("[" + deck.get(i) + ",");
-			}
-			if(count > 0 && count < deck.size() -1){
-				System.out.println(deck.get(i) + ",");
-			}
-			else{
-				System.out.println(deck.get(i) + "]");
-			}
-		}
+		System.out.println(deck);
+		sortBySuit();
+		System.out.println(deck);
 	}
 
 	//prints the deck
 	public String toString(){
 
-		String result = "";
+		String result = "Deck: ";
 		int count = 0;
 
 		for(int i = 0; i<deck.size();i++){
 
 			if(count == 0){
-				result += "[" + deck.get(i) + ",";
+				result += deck.get(i) + ",";
+				count++;
+				
 			}
 
 			if(count > 0 && count < deck.size() -1){
 				result += deck.get(i) + ",";
+				count++;
 			}
 
 			else{
 				result+=deck.get(i) + "]";
+				count++;
 			}
 		}
 

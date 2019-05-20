@@ -16,17 +16,17 @@ public class Card{
 		this.rank = rank;
 	}
 
-	//returns suit
+	//returns the value of the suit
 	public int getSuit(){
 		return suit;
 	}
 
-	//returns rank
+	//returns the value of the rank
 	public int getRank(){
 		return rank;
 	}
 
-	//returns if 'o' is equal to card
+	//checks if 'o' is euqal to this card
 	public boolean equals(Object o){
 		if(!(o instanceof Card)){
 			return false;
@@ -46,15 +46,14 @@ public class Card{
 		if(other.getRank() != this.getRank()){
 			return false;
 		}
-		
+
 		else{
 			return true;
 		}
 	}
-	
+
 	//returns a string representation of the card
 	public String toString(){
-
-		return "(" + suit + "," + rank + ")";
+		return "{" + suit + "," + rank + "}";
 	}
 }

@@ -1,77 +1,107 @@
 public class Game{
 
+	//instance variables
 	private Deck mainDeck;
-
-	private Deck playerHand;
-
 	private Die die;
-
+	private Deck playerHand = new Deck();
+	private Utils utils = new Utils();
 	private int ranks;
 
-	private Utils utils = new Utils();
-	
+	//constructor
 	public Game(int ranks){
 		this.ranks = ranks;
-		mainDeck = new Deck();
+		mainDeck = new Deck(ranks);
 		die = new Die();
 	}
 
+	//game logic
 	public int play(){
-
-		int rounds = 0;
-
+		int rounds = 1;
 		boolean meld = true;
+		int currentDie;
 
 		mainDeck.shuffle();
-
 		playerHand = mainDeck.deal(7);
 
-		while(playerHand.size() > 0){
+		playerHand.print();
 
-			die.roll();
+		while(playerHand.hasCards()){
 
-			if(die.getValue() == 1){
+			System.out.println("Welcome to round " + rounds);
+
+			System.out.println("Rolling the die!");
+
+			if(!mainDeck.hasCards()){
+				currentDie = 1;
+			}
+
+			else{
+				die.roll();
+				currentDie = die.getValue();
+			}
+
+			System.out.println("The die has value " + currentDie);
+
+			if(currentDie > 1){
+				System.out.println("Adding (up to) " + currentDie+ " cards to your hand.");
+			}
+
+			System.out.println("The size of the deck is: " + mainDeck.size()); //remove later
+			
+			if(currentDie == 1){
 				boolean yesOrNo = utils.readYesOrNo("Would you like to discard a card?: ");
-				if( yesOrNo = true){
-					int number = utils.readNumber("Enter the position of the card you would like to discard: ", 0, playerHand.size()-1);
-					playerHand.remove(playerHand.get(number));
+				
+				if(yesOrNo == true){
+					Card cardToDiscard = utils.readCard();
+					playerHand.remove(cardToDiscard);
+					yesOrNo = false;
 				}
 				rounds++;
 
 			}
-			if(die.getValue()>1){
-				if(die.getValue() < mainDeck.size()){
-					playerHand = mainDeck.deal(die.getValue());
+
+			if(currentDie>1){
+				meld = true;
+				if(currentDie < mainDeck.size()){
+					playerHand.addAll(mainDeck.deal(currentDie));
 				}
-				if(mainDeck.size() < die.getValue()){
-					playerHand = mainDeck.deal(mainDeck.size());
+
+				if(mainDeck.size() < currentDie){
+					playerHand.addAll(mainDeck.deal(mainDeck.size()));
 				}
-				while(meld = true){
-					boolean yesOrNo = utils.readYesOrNo("Do you have a meld?: ");
-					if (yesOrNo = true){
-						Deck cards = utils.readCards("Enter the cards in your deck that form a meld: ");
-						cards.sortBySuit();
-						if(cards.isKind()){
-							playerHand.removeAll(cards);
+
+				playerHand.print();
+				while(meld == true){
+					boolean yesOrNo = utils.readYesOrNo("Do you  have a sequences of three or more cards of the same suit or two or more of a kind? ");
+
+					if (yesOrNo == true){
+						Deck meldToDiscard = utils.readCards("Which 3+ sequence or 2+ of a kind would you like to discard? ");
+
+						if(meldToDiscard.isKind() && playerHand.containsAll(meldToDiscard)){
+							playerHand.removeAll(meldToDiscard);
 						}
-						cards.sortByRank();
-						if(cards.isSeq()){
-							playerHand.removeAll(cards);
-						}
+
+
+						if(meldToDiscard.isSeq() && playerHand.containsAll(meldToDiscard)){
+							playerHand.removeAll(meldToDiscard);
+				  		}
+
+				  		else{
+				  			System.out.println("Cannot discard those cards!");
+				  		}
 					}
-					else{
-						meld = false;
+
+					if(yesOrNo == false){
+						break;
 					}
+
 				}
+
 				rounds++;
 
 			}
 
 		}
 		return rounds;
-
-
-
-
 	}
 }
