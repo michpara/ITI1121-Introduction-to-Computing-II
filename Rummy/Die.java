@@ -21,7 +21,7 @@ public class Die{
 
 	//changes the value of die to a random value
 	public void roll(){
-		die = rand.nextInt(MAXVALUE-1+1)+1;
+		die = rand.nextInt(MAXVALUE - 1 + 1) + 1;
 	}
 
 	//returns a string representation of the die
