@@ -5,6 +5,8 @@ public class Solution{
 	int currentWidth;
 	int currentHeight;
 	int boardSize;
+	int width;
+	int height;
 
 	
 	//constructor
@@ -24,12 +26,12 @@ public class Solution{
 	public void setNext(boolean nextValue){
 
 		solution[currentWidth][currentHeight] = nextValue;
-		boardSize++
+		boardSize++;
 		
 		if(currentWidth<width){
 			currentWidth++;
 		}
-		else if(currentWidth = width && curentHeight < height){
+		else if(currentWidth == width && currentHeight < height){
 			currentWidth = 1;
 			currentHeight++;
 		}
@@ -48,11 +50,8 @@ public class Solution{
 
 	public boolean equals(Object other){
 
-		if(!other.instanceof(Solution)){
-			return false;
-		}
 
-		Solution o = (Solution) other;
+		boolean[][] o = (boolean[][]) other;
 
 		if(o == null && solution != null){
 			return false;
@@ -70,15 +69,16 @@ public class Solution{
 
 	public String toString(){
 		String in = "[";
-		String out = "]"
-		stringHeight = 0;
+		String out = "]";
+		String array = "";
+		int stringHeight = 0;
 		
 		while(stringHeight < height){
-			for(int i = 0; i<width;i++){
+			for(int i = 0; i < width;i++){
 				array += solution[i][stringHeight];
 			}
 			stringHeight++;
-			in += array + ","
+			in += array + ",";
 
 		}
 		

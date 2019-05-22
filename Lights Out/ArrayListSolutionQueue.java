@@ -1,10 +1,10 @@
-import java.utils.ArrayList;
+import java.util.ArrayList;
 
 public class ArrayListSolutionQueue implements SolutionQueue{
 
 	//instance variables
 	ArrayList<Solution> queue;
-	current = 0;
+	int current = 0;
 
 	public ArrayListSolutionQueue(){
 
@@ -17,7 +17,7 @@ public class ArrayListSolutionQueue implements SolutionQueue{
 	}	
 
 	public Solution dequeue(){
-		tmp = queue.get(current);
+		Solution tmp = queue.get(current);
 		queue.remove(current);
 		current++;
 		return tmp;
