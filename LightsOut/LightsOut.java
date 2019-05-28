@@ -1,9 +1,10 @@
 import java.util.Calendar;
+import java.util.ArrayList;
 
 public class LightsOut{
 
 
-	public ArrayList<Solution> solve(int width, int height){
+	public static ArrayList<Solution> solve(int width, int height){
 
 		//instance variables
 		SolutionQueue partialSolutions = new ArrayListSolutionQueue();
@@ -14,11 +15,11 @@ public class LightsOut{
 		while(!partialSolutions.isEmpty()){
 			long startTime = Calendar.getInstance().getTimeInMillis();
 			current = partialSolutions.dequeue();
-			if(current.isReady() && current.isSuccessful()){
+			if(current.isReady() && current.isSuccessful()){ 
 				long endTime = Calendar.getInstance().getTimeInMillis();
 				long totalTime = endTime - startTime;
 				System.out.println("A solution was found in: " + totalTime);
-				solution.add(current);
+				solutions.add(current);
 			}
 			else{
 				Solution currentExt = new Solution(current);
