@@ -1,12 +1,13 @@
 public class Solution{
 
 	//instance variables
-	boolean[][] solution;
-	int currentWidth;
-	int currentHeight;
-	int boardSize;
-	int width;
-	int height;
+	public boolean[][] solution;
+	public boolean[][] successful;
+	public int currentWidth;
+	public int currentHeight;
+	public int boardSize;
+	public int width;
+	public int height;
 
 	
 	//constructor
@@ -46,6 +47,42 @@ public class Solution{
 		}
 		return true;
 
+	}
+
+	public boolean isSuccessful(){
+		boolean returnValue = false;
+		for(int i = 0; i<solution.length; i++){
+			for(int j = 0; j<solution[0].length; j++){
+				if(solution[width][height] == true){
+					if(successful.length < (solution.length-1)){
+						solution[width+1][height] = true;
+					}
+					if(successful.length > 0){
+						solution[width-1][height] = true;
+					}
+					if(successful[0].length < (solution[0].length-1)){
+						solution[width][height+1] = true;
+					}
+					if(successful[0].length > 0){
+						solution[width][height-1] = true;
+					}
+
+				}
+			}
+		}
+		for(int i = 0; i<successful.length;i++){
+			for(int j = 0; i<successful[0].length;j++){
+				if (successful[i][j] != true){
+					returnValue = false;
+				}
+				else{
+					returnValue = true;
+				}
+				
+			}
+		}
+		return returnValue;
+		
 	}
 
 	public boolean equals(Object other){
