@@ -21,6 +21,16 @@ public class Solution{
 	}
 
 	public Solution(Solution other){
+		this.width = other.width;
+		this.height = other.height;
+
+		solution = new boolean[other.width][other.height];
+
+		for(int i = 0; i<solution.length;i++){
+			for(int j = 0;j<solution[0].length;j++){
+				solution[i][j] = other.solution[i][j];
+			}
+		}
 
 	}
 
