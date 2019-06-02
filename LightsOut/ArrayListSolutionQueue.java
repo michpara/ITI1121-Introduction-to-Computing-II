@@ -7,7 +7,6 @@ public class ArrayListSolutionQueue implements SolutionQueue{
 	int current = 0;
 
 	public ArrayListSolutionQueue(){
-
 		queue = new ArrayList<Solution>();
 
 	}

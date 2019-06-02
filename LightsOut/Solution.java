@@ -15,23 +15,25 @@ public class Solution{
 		this.width = width;
 		this.height = height;
 		solution = new boolean[width][height];
-		currentWidth = 1;
-		currentHeight = 1;
+		currentWidth = 0;
+		currentHeight = 0;
 		boardSize = 0;
 	}
 
 	public Solution(Solution other){
 		this.width = other.width;
 		this.height = other.height;
+		currentWidth = other.currentWidth;
+		currentHeight = other.currentHeight;
+		boardSize = other.boardSize;
 
 		solution = new boolean[other.width][other.height];
 
-		for(int i = 0; i<solution.length;i++){
-			for(int j = 0;j<solution[0].length;j++){
+		for(int i = 0; i < solution.length; i++){
+			for(int j = 0; j < solution[0].length; j++){
 				solution[i][j] = other.solution[i][j];
 			}
 		}
-
 	}
 
 	public void setNext(boolean nextValue){
@@ -39,11 +41,11 @@ public class Solution{
 		solution[currentWidth][currentHeight] = nextValue;
 		boardSize++;
 		
-		if(currentWidth<width){
+		if(currentWidth<width-1){
 			currentWidth++;
 		}
-		else if(currentWidth == width && currentHeight < height){
-			currentWidth = 1;
+		else if(currentWidth == width-1 && currentHeight < height-1){
+			currentWidth = 0;
 			currentHeight++;
 		}
 		else{
@@ -55,40 +57,41 @@ public class Solution{
 		if (boardSize < width*height){
 			return false;
 		}
-		return true;
 
+		return true;
 	}
 
 	public boolean isSuccessful(){
+		successful = new boolean[width][height];
 		boolean returnValue = false;
-		for(int i = 0; i<solution.length; i++){
-			for(int j = 0; j<solution[0].length; j++){
-				if(solution[width][height] == true){
-					if(successful.length < (solution.length-1)){
-						solution[width+1][height] = true;
+		for(int i = 0; i<width; i++){
+			for(int j = 0; j<height; j++){
+				if(solution[i][j] == true){
+					successful[i][j] = true;
+					if(i < (i-1)){
+						successful[i+1][j] = true;
 					}
-					if(successful.length > 0){
-						solution[width-1][height] = true;
+					if(i > 0){
+						successful[i-1][j] = true;
 					}
-					if(successful[0].length < (solution[0].length-1)){
-						solution[width][height+1] = true;
+					if(j< (j-1)){
+						successful[i][j+1] = true;
 					}
-					if(successful[0].length > 0){
-						solution[width][height-1] = true;
+					if(j > 0){
+						successful[i][j-1] = true;
 					}
-
 				}
 			}
 		}
-		for(int i = 0; i<successful.length;i++){
-			for(int j = 0; i<successful[0].length;j++){
-				if (successful[i][j] != true){
+		
+		for(int k = 0; k<width;k++){
+			for(int l = 0; l<height;l++){
+				if (successful[k][l] != true){
 					returnValue = false;
 				}
 				else{
 					returnValue = true;
 				}
-				
 			}
 		}
 		return returnValue;
@@ -124,17 +127,13 @@ public class Solution{
 			for(int i = 0; i < width;i++){
 				array += solution[i][stringHeight];
 			}
+
 			stringHeight++;
 			in += array + ",";
-
 		}
 		
 		in += out;
 		return in;
-
-
-
-
 	}
 
 }
