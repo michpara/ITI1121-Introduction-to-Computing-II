@@ -1,3 +1,3 @@
-# **ITI1121**
+# Introduction to Computing II
 
-This repository contains all of my ITI1121 projects.
+Labs for Introduction to Computing II
