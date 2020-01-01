@@ -7,18 +7,18 @@ public class Library {
 
     //returns the book at index i
     public Book getBook(int i) {
-      return library.get(i);
+      	return library.get(i);
     }
 
     //returns the size of the library
     public int getSize() {
-      return library.size(); 
+      	return library.size(); 
     }
 
     //adds Book b to the library
     public void addBook (Book b) {
         if(b == null){
-            return
+            return;
         }
         
         library.add(b);

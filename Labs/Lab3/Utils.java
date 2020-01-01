@@ -5,29 +5,28 @@ public class Utils {
     public static String[] findAndReplace( String[] in, String[] what, String[] with ) {
 
         String[] out = null; // The new array to be returned
-	boolean valid = true; // True if the pre-conditions are satistified
+		boolean valid = true; // True if the pre-conditions are satistified
 
       	// Testing pre-conditions
       	if ( in == null || what == null || with == null ) {
-            valid = false; //valid is false if in, what or with are null
+        	valid = false; //valid is false if in, what or with are null
       	} 
 
         else {
             for(int i = 0; valid == true && i<in.length;i++){
                 if(in[i] == null){ 
                     valid = false; //valid is false if any element in the array in are null
-              }
+                }
             }
 
             if(what.length != with.length && valid){
                 valid = false; //valid is false if the length of the array what isn't the same as the array width
             } else{
-
-              for(int i=0; valid && i<what.length;i++){
-                  if(what[i] == null || with[i] == null){
-                      valid = false; //valid is false if any element in the array what or with is null
-                }
-              }
+            	for(int i=0; valid && i<what.length;i++){
+                    if(what[i] == null || with[i] == null){
+                    	valid = false; //valid is false if any element in the array what or with is null
+                	}
+              	}
             }
       	}
 

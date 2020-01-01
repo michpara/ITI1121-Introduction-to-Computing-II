@@ -5,8 +5,8 @@ public class TextPost extends Post {
 
     //constructor
     public TextPost(String userName, String message) {
-      super(userName); //overides userName
-      this.message = message;
+      	super(userName); //overides userName
+      	this.message = message;
     }
 	
     //gets the message
@@ -23,10 +23,10 @@ public class TextPost extends Post {
 	
 	//returns if the post is popular
     public boolean isPopular() {
-      if(super.likes > 50){ //overides likes
-          return true;
-      }    
-      return false;
-      }
+      	if(super.likes > 50){ //overides likes
+          	return true;
+      	}    
+      	return false;
+    }
 
 }

@@ -33,21 +33,19 @@ public class NewsFeed {
     }
 	  //sorts the NewsFeed
     public void sort(){
-	int i, j, argMin;
-	Post temp;
-	for (i = 0; i < size - 1; i++) {
-	    argMin = i;
-		for (j = i + 1; j < size(); j++) {
-		    if (messages[j].compareTo(messages[argMin]) < 0) {
-			argMin = j;
-		    }
+		int i, j, argMin;
+		Post temp;
+		for (i = 0; i < size - 1; i++) {
+		    argMin = i;
+			for (j = i + 1; j < size(); j++) {
+			    if (messages[j].compareTo(messages[argMin]) < 0) {
+				argMin = j;
+			    }
+			}
+			temp = messages[argMin];
+			messages[argMin] = messages[i];
+			messages[i] = temp;
 		}
-
-	temp = messages[argMin];
-	messages[argMin] = messages[i];
-        messages[i] = temp;
-	}
-        
     }
 
     //gets all the PhotoPosts on the NewsFeed
@@ -62,24 +60,20 @@ public class NewsFeed {
         return photoFeed;
     }
 
-      //adds this NewsFeed with other
-      public NewsFeed plus(NewsFeed other){
+    //adds this NewsFeed with other
+    public NewsFeed plus(NewsFeed other){
 
-	      NewsFeed newFeed = new NewsFeed();
+		NewsFeed newFeed = new NewsFeed();
+	     	for(int i =0;i<size();i++){
+		 		newFeed.add(messages[i]); 
+	      	}	
 
-	      for(int i =0;i<size();i++){
-		  newFeed.add(messages[i]); 
-	      }
+	      	for(int j =0;j<size();j++){
+		  		newFeed.add(other.messages[j]); 
+	      	}
 
-	      for(int j =0;j<size();j++){
-		  newFeed.add(other.messages[j]); 
-	      }
-
-
-	      newFeed.sort(); 
-	      return newFeed;
-
-
-      }
+	    newFeed.sort(); 
+	    return newFeed;
+    }
 
 }
