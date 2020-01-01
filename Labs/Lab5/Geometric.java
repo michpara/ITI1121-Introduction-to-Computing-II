@@ -7,7 +7,6 @@ public class Geometric extends AbstractSeries {
     
     //returns the next partial sum where it is the series like 1 + 1/2 + 1/4 + 1/8...
     public double next() {
-
     	if(count2==0){ //the first time the method is called
     		count = count/Math.pow(2,i-1) + 1; 
     		count2++; 
@@ -19,6 +18,5 @@ public class Geometric extends AbstractSeries {
     		i++; 
     	}
     	return count;
-
     }
 }

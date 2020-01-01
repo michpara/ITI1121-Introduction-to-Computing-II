@@ -62,7 +62,6 @@ public class NewsFeed {
 
     //adds this NewsFeed with other
     public NewsFeed plus(NewsFeed other){
-
 		NewsFeed newFeed = new NewsFeed();
 	     	for(int i =0;i<size();i++){
 		 		newFeed.add(messages[i]); 
@@ -75,5 +74,4 @@ public class NewsFeed {
 	    newFeed.sort(); 
 	    return newFeed;
     }
-
 }

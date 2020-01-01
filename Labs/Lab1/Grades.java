@@ -26,7 +26,6 @@ public class Grades{
 	
 	//calculates the average of the grades
 	public static double calculateAverage(double[] notes){
-		
 		double total = 0; 
 		double result = 0; 
 		
@@ -41,7 +40,6 @@ public class Grades{
 	
 	//calculates the median of the grades
 	public static double calculateMedian(double[] notes){
-		
 		int i, j; 
 		int minValueIndex = 0; 	
 		double temp; 
@@ -68,20 +66,17 @@ public class Grades{
 		else{ 
 			result = (notes[(int)(middleIndex-0.5)] + notes[(int)(middleIndex+0.5)])/2; 
 		}
-
 		return result; 
 	}
 	
 	//calculates the number of failed grades
 	public static int calculateNumberFailed(double[] notes){
-		
 		int numberOfFailedGrades = 0; 
 		
 		for(int i =0;i<notes.length;i++){
 			if(notes[i] < 50){ 
 				numberOfFailedGrades++; 
 			}
-
 		}
 		
 		return numberOfFailedGrades;
@@ -89,14 +84,12 @@ public class Grades{
 	
 	//calculates the number of passed grades
 	public static int calculateNumberPassed(double[] notes){
-		
 		int numberOfPassedGrades = 0; 
 		
 		for(int i =0;i<notes.length;i++){
 			if(notes[i] >= 50){ 
 				numberOfPassedGrades++; 
 			}
-
 		}
 		
 		return numberOfPassedGrades;

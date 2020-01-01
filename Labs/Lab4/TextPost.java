@@ -28,5 +28,4 @@ public class TextPost extends Post {
       	}    
       	return false;
     }
-
 }

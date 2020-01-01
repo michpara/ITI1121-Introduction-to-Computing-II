@@ -9,9 +9,7 @@ public class Average{
 
 	//calculates the average of all the element in the array
 	public static double calculateAverage(double[] values){
-		
 		double result = 0; 
-		
 		double total = 0; 
 
 		for(int i=0;i<values.length;i++){

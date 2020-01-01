@@ -61,5 +61,4 @@ public class Book {
     public String toString() {
         return(author+ ": " + title + " (" + year + ")"); //print as author: title (year)
     }
-
 }

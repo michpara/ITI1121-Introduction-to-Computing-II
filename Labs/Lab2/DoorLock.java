@@ -43,14 +43,11 @@ public class DoorLock {
         }
 
         return activated && open; 
-        
     }
     //activates this DoorLock if c is equal to this Combination
     public void activate( Combination c ) {
         if (combination.equals(c)){ 
             activated = true; 
         }
-
     }
-
 }

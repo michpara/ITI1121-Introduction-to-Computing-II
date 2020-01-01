@@ -12,7 +12,6 @@ public class ReverseSort{
 	
 	//sorts the array and reverses it
 	public static void reverseSort(char[] values){
-
 		for(int i = 0; i < values.length - 1; i++){ 
 			int maxValueIndex = i;
 			

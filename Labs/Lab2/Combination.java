@@ -22,9 +22,7 @@ public class Combination {
 
     //returns a string representation of the Combination as first:second:third
     public String toString() {
-
         return first + ":" + second + ":" + third;
-       
     }
 
 }

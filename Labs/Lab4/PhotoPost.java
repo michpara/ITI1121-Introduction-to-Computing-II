@@ -27,5 +27,4 @@ public class PhotoPost extends Post {
     	str = super.toString() + ", " + fileName + ", " + caption;
     	return str;
     }
-
 }
