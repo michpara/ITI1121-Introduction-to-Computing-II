@@ -14,11 +14,12 @@ public class DynamicArrayStack<E> implements Stack<E> {
             elems = (E[]) new Object[DEFAULT_INC];
         }
         else {
-        	elems =((E[]) new Object[capacity];
+        	elems =(E[]) new Object[capacity];
         }
         top = 0;
     }
 
+    
     // Gets current capacity of the array
     public int getCapacity() {
         return elems.length;
@@ -38,11 +39,11 @@ public class DynamicArrayStack<E> implements Stack<E> {
 
     // Removes and returns the top element of this stack
     public E pop() {
-    	
-    	if(top == elems.length - DEFAULT_INC) {
-    		E[] newElems = (E[]) new Object[top];
+    	E[] newElems;
+    	if(top == (elems.length - DEFAULT_INC)) {
+    		newElems = (E[]) new Object[top];
     		for(int i = 0; i<top; i++) {
-    			newElems = elems[i];
+    			newElems[i] = elems[i];
     		}
     		elems = newElems;
     	}
@@ -73,5 +74,36 @@ public class DynamicArrayStack<E> implements Stack<E> {
     		elems[i] = null;
     	}
     	top = 0;
+    }
+    
+    public static void main( String[] args ) {
+
+        DynamicArrayStack<String> s;
+
+        s = new DynamicArrayStack<String>(10);
+        
+        System.out.println(s.getCapacity()); //should be 25
+
+        for ( int i=0; i<25; i++ ) {
+            s.push( "Elem-" + i );
+        }
+
+        s.clear();
+
+        while ( ! s.isEmpty() ) {
+            System.out.println( s.pop() );
+        }
+
+        for ( int i=0; i<30; i++ ) {
+            s.push( "** Elem-" + i );
+        }
+        
+        System.out.println(s.getCapacity()); //should be 50
+
+        for(int i = 0; i<6; i++) {
+            System.out.println( s.pop() );
+        }
+        
+        System.out.println(s.getCapacity());//should be 25
     }
 }
