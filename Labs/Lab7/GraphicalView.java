@@ -33,7 +33,7 @@ public class GraphicalView extends JFrame implements View {
 		decrementMinutes.addActionListener(controller);
 		decrementHours.addActionListener(controller);
 
-		//adds the increments and inputs to the layour
+		//adds the increments and inputs to the layout
 		add(incrementHours);
 		add(incrementMinutes);
 		add(incrementSeconds);

@@ -50,7 +50,6 @@ public class Timer {
 			minutes = 0;
 			hours = 0;
 		}
-
 	}
 
 	//decrements the minutes by 1 (between 0 and 59)
