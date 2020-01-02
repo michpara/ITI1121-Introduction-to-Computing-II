@@ -64,19 +64,14 @@ public class DynamicArrayStack<E> implements Stack<E> {
     		}
         	elems = newElems;
     	}
-    	
     	elems[top++] = element;
-
     }
 
     @SuppressWarnings( "unchecked" )
-
     public void clear() {
     	for(int i = 0; i<elems.length; i++) {
     		elems[i] = null;
     	}
     	top = 0;
-    
     }
-
 }

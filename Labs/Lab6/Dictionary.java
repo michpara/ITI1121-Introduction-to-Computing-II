@@ -7,11 +7,11 @@ public class Dictionary implements Map<String, Integer> {
     private Pair[] elems;
 
     public int getCount() {
-      return count;
+    	return count;
     }
 
     public int getCapacity() {
-      return elems.length;
+    	return elems.length;
     }
 
     public Dictionary() {
@@ -21,23 +21,19 @@ public class Dictionary implements Map<String, Integer> {
 
     @Override
     public void put(String key, Integer value) {
-    	if(count == INITIAL_CAPACITY) {
+    	if(count == elems.length) {
     		increaseCapacity();
     	}
-    	if(contains(key)) {
-    		replace(key, value);
-    	}
         Pair pair = new Pair(key, value);
-        elems[count++] = pair;
+        elems[count++] = pair;   
     }
 
     private void increaseCapacity() {
-    	Pair[] newElems = new Pair[INITIAL_CAPACITY + INCREMENT];
+    	Pair[] newElems = new Pair[count + INCREMENT];
     	for(int i = 0; i<elems.length; i++) {
     		newElems[i] = elems[i];
     	}
-    	elems = newElems;
-    	
+    	elems = newElems;	
     }
 
     @Override
@@ -45,8 +41,8 @@ public class Dictionary implements Map<String, Integer> {
     	if(count == 0) {
     		return false;
     	}
-        for(Pair pair : elems) {
-        	if(pair.getKey() == key) {
+        for(int i = 0; i< count; i++) {
+        	if(elems[i].getKey() == key) {
         		return true;
         	}
         }
@@ -56,21 +52,19 @@ public class Dictionary implements Map<String, Integer> {
     @Override
     public Integer get(String key) {
     	int value = 0;
-        for(Pair pair : elems) {
-        	if(pair.getKey() == key) {
-        		value =  pair.getValue();
-        		break;
+        for(int i = 0; i<count; i++) {
+        	if(elems[i].getKey().equals(key)) {
+        		value = elems[i].getValue();
         	}
         }
-    	return value;
-        
+    	return Integer.valueOf(value);
     }
 
     @Override
     public void replace(String key, Integer value) {
-        for(Pair pair : elems) {
-        	if(pair.getKey() == key) {
-        		pair.setValue(value);
+        for(int i = 0; i<count; i++) {
+        	if(elems[i].getKey() == key) {
+        		elems[i].setValue(value);
         	}
         }
     }
@@ -78,30 +72,33 @@ public class Dictionary implements Map<String, Integer> {
     @Override
     public Integer remove(String key) {
     	int temp = 0;
-    	int index = 0;
-        for(Pair pair : elems) {
-        	if(pair.getKey() == key) {
-        		temp = pair.getValue();
-        		elems[index] = null;
-        		break;
+    	int startIndex = 0;
+        if(contains(key)) {
+        	temp = get(key);
+        	for(int i = 0; i<count; i++) {
+        		if(elems[i].getKey() == key) {
+        			startIndex = i;
+        		}
         	}
-        	index++;
+        	for(int j = startIndex; j<count-1; j++) {
+				elems[j] = elems[j+1];
+			}
+        	elems[elems.length-1] = null;
+        	count--;
         }
-        return temp;
-        
+        return Integer.valueOf(temp); 
     }
 
     @Override
     public String toString() {
-      String res;
-      res = "Dictionary: {elems = [";
-      for (int i = count-1; i >= 0 ; i--) {
-          res += elems[i];
-          if(i > 0) {
-              res += ", ";
-          }
-      }
-      return res +"]}";
-    }
-
+    	String res;
+    	res = "Dictionary: {elems = [";
+    	for (int i = count-1; i >= 0 ; i--) {
+    		res += elems[i];
+    		if(i > 0) {
+    			res += ", ";
+    		}
+    	}
+    	return res +"]}";
+	}
 }
