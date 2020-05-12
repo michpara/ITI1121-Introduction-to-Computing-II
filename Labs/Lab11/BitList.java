@@ -41,7 +41,7 @@ public class BitList {
     		else {
     			bli.add(s.charAt(i));
     		}
-    	}
+        }
     }
 
     public void addFirst( int bit ) {
