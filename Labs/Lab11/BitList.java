@@ -28,7 +28,20 @@ public class BitList {
     }
 
     public BitList( String s ) {
-        throw new UnsupportedOperationException( "not implemented yet!" );
+    	BitListIterator bli = new BitListIterator();
+    	
+    	for(int i = s.length()-1; i>=0; i--) {
+    		
+    		if(s.charAt(i) == '0') {
+    			bli.add(ZERO);
+    		}
+    		else if(s.charAt(i) == '1'){
+    			bli.add(ONE);
+    		}
+    		else {
+    			bli.add(s.charAt(i));
+    		}
+    	}
     }
 
     public void addFirst( int bit ) {
