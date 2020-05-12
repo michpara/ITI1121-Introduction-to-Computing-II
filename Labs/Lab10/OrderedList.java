@@ -109,27 +109,42 @@ public class OrderedList implements OrderedStructure {
         return; 
     }
 
-    // Knowing that both lists store their elements in increasing
-    // order, both lists can be traversed simultaneously.
 
-    public void merge( OrderedList other ) {    
-         while (head != null && other.head != null) {
-             if (head.value.compareTo(other.head.value)<0) {
-                 add(head.value);
-                 head = head.next;
-             } else {
-                 add(other.head.value);
-                 other.head = other.head.next;
-             }
-         }
-         while (head != null) {
-             add(head.value);
-             head = head.next;
-         }
-         while (head != null) {
-             add(other.head.value);
-             other.head = other.head.next;
-         }
+    public void merge(OrderedList other) {
+    	Node current;
+    	Node otherCurrent = other.head;
+    	while(otherCurrent != null) {
+    		if (head == null) {
+    	        head = new Node(otherCurrent.value, null, null); 
+    	        otherCurrent = otherCurrent.next;
+    	    }
+
+    	    else if (head.value.compareTo(otherCurrent.value) >= 0) 
+    	    { 
+    	    	Node newNode = new Node(otherCurrent.value, null, head);
+    	        newNode.next.previous = newNode; 
+    	        head = newNode; 
+    	        otherCurrent = otherCurrent.next;
+    	    } 
+
+    	    else 
+    	    { 
+    	        current = head; 
+
+    	        while (current.next != null &&  
+    	                current.next.value.compareTo(otherCurrent.value) < 0) {  
+    	            current = current.next; 
+    	        }
+
+    	        Node newNode = new Node(otherCurrent.value, null, current.next);
+
+    	        if (current.next != null)  
+    	            newNode.next.previous = newNode;  
+
+    	        current.next = newNode;  
+    	        newNode.previous = current; 
+    	        otherCurrent = otherCurrent.next;
+    	    }    	
+    	}
     }  
-    
 }
